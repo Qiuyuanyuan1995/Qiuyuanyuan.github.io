@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>问答系统 - 首页</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/all.css">
+</head>
+<body>
+    <!--导航栏  -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container dropdown">
+        <div class="row">
+          <a class="navbar-brand" href="#">智游教育</a>
+          <div class="navbar-text pull-right text-right">
+            <span id="ask"><span class="glyphicon glyphicon-plus"></span>提问</span>&#x3000;
+            <span id="user" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-user"></span>
+                <span></span>
+            </span>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li><a class="text-right" href="user.html">个人资料</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a class="text-right">退出</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--问题和答案  -->
+    <div class="container questions"></div>
+    <script src="js/template.js"></script>
+    <!-- 模板 -->
+    <script id="question-template" type="text/html">
+      {{each data as value item}}
+      <div class="media" question="{{value.time | ms}}">
+        <div class="media-left">
+          <a>
+            <img class="media-object" src="uploads/{{value.username}}.jpg" onerror="this.src='/images/user.png'">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">{{value.username}}</h4>
+          {{value.content}}
+          <div class="media-footing">
+            {{value.time | formatTime}}
+          </div>
+        </div>
+      </div>
+      {{each value.answers as data}}
+        {{include 'answer-template' data}}
+      {{/each}}
+      {{/each}}
+    </script>
+    <!-- 子模板：答案模板 -->
+    <script id="answer-template" type="text/html">
+      <div class="media media-child">
+        <div class="media-body">
+          <h4 class="media-heading">{{username}}</h4>
+          {{content}}
+          <div class="media-footing">
+            {{time | formatTime}}
+          </div>
+        </div>
+        <div class="media-right">
+          <a>
+            <img class="media-object" src="uploads/{{username}}.jpg" onerror="this.src='/images/user.png'">
+          </a>
+        </div>
+      </div>
+    </script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="script/index.js"></script>
+</body>
+</html>

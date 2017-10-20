@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人资料</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/all.css">
+</head>
+<body>
+    <!-- 导航条 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-title">
+                    <span id="goBack" class="glyphicon glyphicon-chevron-left pull-left"></span>
+                    个人资料
+                    <span id="home" class="glyphicon glyphicon-home pull-right"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- 表单 -->
+    <div class="container">
+        <!-- enctype：表示表单数据的编码类型 -->
+        <form enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="file" name="photo" required accept=".jpg,.png,.bmp">
+            </div>
+            <input type="submit" class="btn btn-success form-control" value="上传头像">
+        </form>
+    </div>
+    <!--模态框  -->
+    <div class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">智游教育</h4>
+                    </div>
+                    <div class="modal-body"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+                    </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->        
+        </div><!-- /.modal -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="script/user.js"></script>
+</body>
+</html>
